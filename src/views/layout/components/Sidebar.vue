@@ -13,10 +13,13 @@
         mode="vertical"
       >
         <el-menu-item v-for="(route,key) in permission_routes" :key="key"  :index="route.path+'/'+route.children[0].path" :class="{'submenu-title-noDropdown':true}">
-          <router-link :to="route.path+'/'+route.children[0].path">
-            <i class="sub-el-icon" :class='route.children[0].icon'></i>
-            <div class="route-title" v-if="isCollapse">{{route.children[0].name}}</div>
-          </router-link>
+          <template  v-if="!route.hidden">
+            <router-link :to="route.path+'/'+route.children[0].path">
+              <i class="sub-el-icon" :class='route.children[0].icon'></i>
+              <div class="route-title" v-if="isCollapse">{{route.children[0].name}}</div>
+            </router-link>
+          </template> 
+          
         </el-menu-item>
       </el-menu>
     </el-scrollbar>
@@ -35,6 +38,7 @@ export default {
     ]),
     activeMenu() {
       const route = this.$route
+      console.log(this.permission_routes)
       const { meta, path } = route
       return path
     },

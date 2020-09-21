@@ -18,15 +18,20 @@ export const constantRoutes = [{
         }]
     },
     {
-        path: '',
+        path: '/mall',
         component: Layout,
         children: [{
-            path: 'mall',
+            path: 'index',
             component: () =>
                 import ('@/views/mall'),
             name: '商品管理',
             icon: 'el-icon-shopping-bag-1',
             meta: { title: '商品管理', affix: true }
+        }, {
+            path: 'create',
+            name: '创建商品',
+            component: () =>
+                import ('@/views/mall/create')
         }]
     },
     {
@@ -40,7 +45,6 @@ export const constantRoutes = [{
             icon: 'el-icon-setting',
             meta: { title: 'About', icon: 'About', affix: true }
         }]
-
     }
 ]
 

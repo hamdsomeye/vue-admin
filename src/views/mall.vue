@@ -11,6 +11,9 @@
         end-placeholder="结束日期">
       </el-date-picker>
     </div>
+    <div class="mall_create">
+      <router-link to="/mall/create"><el-button type="primary">创建商品</el-button></router-link>
+    </div>
     <el-table
       :data="tableData.rows.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
       border
@@ -149,5 +152,9 @@ import Pagination from '@/components/Pagination'
 </script>
 
 <style lang="scss" scoped>
-  
+  .mall_create{
+    position: absolute;
+    right: 60px;
+    top: 20px;
+  }
 </style>
