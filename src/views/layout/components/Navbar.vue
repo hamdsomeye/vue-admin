@@ -58,7 +58,6 @@
         },
         getLevelList() {
           let matched = this.$route.matched.filter(item => item.name)
-          console.log(matched)
           this.levelList = matched
         }
       }

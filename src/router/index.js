@@ -38,6 +38,18 @@ export const constantRoutes = [{
         }]
     },
     {
+        path: '/merchants',
+        component: Layout,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/merchants/index'),
+            name: '商户管理',
+            icon: 'el-icon-place',
+            meta: { title: '商户管理', affix: true }
+        }]
+    },
+    {
         path: '/about',
         component: Layout,
         children: [{

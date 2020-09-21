@@ -119,10 +119,10 @@ import Pagination from '@/components/Pagination'
     computed: {
       pageSizes() {
         const count = this.tableData.count/10
-        const pageSizes = []
+        let pageSizes = []
         let sizes = []
         const page = this.tableData.count/10
-        if(page <= 1){
+        if(page <= 10){
           pageSizes = [10]
         }else{
           if(parseInt(page) == page){
