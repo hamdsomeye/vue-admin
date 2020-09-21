@@ -16,7 +16,7 @@
           <template  v-if="!route.hidden">
             <router-link :to="route.path+'/'+route.children[0].path">
               <i class="sub-el-icon" :class='route.children[0].icon'></i>
-              <div class="route-title" v-if="isCollapse">{{route.children[0].name}}</div>
+              <div class="route-title" v-if="isCollapse">{{route.children[0].meta.title}}</div>
             </router-link>
           </template> 
           
@@ -38,8 +38,10 @@ export default {
     ]),
     activeMenu() {
       const route = this.$route
-      console.log(this.permission_routes)
       const { meta, path } = route
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
       return path
     },
      isCollapse() {

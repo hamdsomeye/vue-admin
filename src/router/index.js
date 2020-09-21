@@ -20,18 +20,21 @@ export const constantRoutes = [{
     {
         path: '/mall',
         component: Layout,
+        redirect: '/mall/list',
+        name: '商品管理',
         children: [{
-            path: 'index',
+            path: 'list',
             component: () =>
                 import ('@/views/mall'),
-            name: '商品管理',
+            name: '',
             icon: 'el-icon-shopping-bag-1',
             meta: { title: '商品管理', affix: true }
         }, {
             path: 'create',
             name: '创建商品',
             component: () =>
-                import ('@/views/mall/create')
+                import ('@/views/mall/create'),
+            meta: { activeMenu: '/mall/list' }
         }]
     },
     {
@@ -41,9 +44,9 @@ export const constantRoutes = [{
             path: 'index',
             component: () =>
                 import ('@/views/About.vue'),
-            name: '关于我们',
+            name: '',
             icon: 'el-icon-setting',
-            meta: { title: 'About', icon: 'About', affix: true }
+            meta: { title: '关于我们', icon: 'About', affix: true }
         }]
     }
 ]
