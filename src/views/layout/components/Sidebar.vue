@@ -12,15 +12,18 @@
         :collapse-transition="false"
         mode="vertical"
       >
-        <el-menu-item v-for="(route,key) in permission_routes" :key="key"  :index="route.path+'/'+route.children[0].path" :class="{'submenu-title-noDropdown':true}">
-          <template  v-if="!route.hidden">
-            <router-link :to="route.path+'/'+route.children[0].path">
-              <i class="sub-el-icon" :class='route.children[0].icon'></i>
-              <div class="route-title" v-if="isCollapse">{{route.children[0].meta.title}}</div>
-            </router-link>
-          </template> 
-          
-        </el-menu-item>
+        <div v-for="(route,key) in permission_routes" :key="key">
+          <template v-if="!route.hidden">
+            <el-menu-item  :index="route.path+'/'+route.children[0].path" :class="{'submenu-title-noDropdown':true}">
+              <template  v-if="!route.hidden">
+                <router-link :to="route.path+'/'+route.children[0].path">
+                  <i class="sub-el-icon" :class='route.children[0].icon'></i>
+                  <div class="route-title" v-if="isCollapse">{{route.children[0].meta.title}}</div>
+                </router-link>
+              </template> 
+            </el-menu-item>
+          </template>
+        </div>
       </el-menu>
     </el-scrollbar>
   </div>

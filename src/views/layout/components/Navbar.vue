@@ -22,7 +22,7 @@
           <img src="http://files.drcloud.me/FsxUk1xSsq2VzXqe9zqvf5Lz0r9v" class="user-avatar">
         </div>
         <el-dropdown-menu slot="dropdown">
-          <router-link to="/setting/index">
+          <router-link to="/about/index">
             <el-dropdown-item>admin</el-dropdown-item>
           </router-link>
           <el-dropdown-item divided @click.native="logout">
@@ -59,6 +59,10 @@
         getLevelList() {
           let matched = this.$route.matched.filter(item => item.name)
           this.levelList = matched
+        },
+        logout() {
+          this.$store.dispatch('LogoutUser')
+          this.$router.push(`/login?redirect=${this.$route.fullPath}`)
         }
       }
     }

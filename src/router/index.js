@@ -5,6 +5,11 @@ import Layout from '@/views/layout/index'
 Vue.use(VueRouter)
 
 export const constantRoutes = [{
+        path: '/login',
+        component: () =>
+            import ('@/views/login/index'),
+        hidden: true
+    }, {
         path: '',
         component: Layout,
         redirect: 'dashboard',
@@ -56,9 +61,9 @@ export const constantRoutes = [{
             path: 'index',
             component: () =>
                 import ('@/views/About.vue'),
-            name: '',
+            name: '个人设置',
             icon: 'el-icon-setting',
-            meta: { title: '关于我们', icon: 'About', affix: true }
+            meta: { title: '个人设置', icon: 'About', affix: true }
         }]
     }
 ]
