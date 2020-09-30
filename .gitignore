@@ -1,6 +1,9 @@
 .DS_Store
 node_modules
 /dist
+/dll
+
+frame-manifest.json
 
 
 # local env files

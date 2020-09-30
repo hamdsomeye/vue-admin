@@ -6,7 +6,7 @@
             <navbar :is-active="sidebar.opened"></navbar>
             <app-main></app-main>
         </div>
-       <p  class="footer-container"  :class="footerTop">Copyright ©2020 版本号AAAAAAA </p>
+        <p class="footer-container"  :class="footerTop">Copyright ©2020 版本号AAAAAAA </p>
     </div>
 </template>
 
@@ -38,7 +38,7 @@
                 }
             },
             footerTop() {
-                return this.device === 'mobile' ? this.windowHight() : 'footer-top'
+                return this.device === 'mobile' && this.$refs.main ? this.windowHight() : 'footer-top'
             }
         },
         methods: {

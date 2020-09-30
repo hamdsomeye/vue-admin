@@ -15,7 +15,7 @@ router.beforeEach(async(to, from, next) => {
         store.dispatch('generateRoutes')
         NProgress.done()
     } else {
-        if (whiteList.indexOf(to.path) !== -1) {
+        if (to.path === '/login') {
             next()
         } else {
             next('/login')
